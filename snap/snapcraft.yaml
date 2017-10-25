@@ -1,0 +1,23 @@
+name: hawkbit
+version: '0.2.0-SNAPSHOT'
+summary: hawkBit rollouts management server
+description: |
+  Project hawkBit aims to create a domain independent back end solution for rolling out software updates to constrained edge devices as well as more powerful controllers and gateways connected to IP based networking infrastructure. Devices can be connected to the hawkBit server either directly through an optimized interface or indirectly through federated device management servers.
+grade: stable
+confinement: strict
+
+apps:
+  hawkbit-server:
+    command: wrapper
+
+parts:
+  hawkbit-jar:
+    plugin: dump
+    source: ../hawkbit-jars
+  jre:
+    plugin: dump
+    source: http://download.java.net/java/GA/jdk9/9.0.1/binaries/openjdk-9.0.1_linux-x64_bin.tar.gz
+  glue:
+    plugin: dump
+    source: glue
+
